@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Stack Roadmap 2026</title>
+    <link rel="shortcut icon" href="icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #0f172a, #020617);
+        color: white;
+        padding: 40px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 40px;
+        letter-spacing: 1px;
+      }
+
+      .phase {
+        margin-bottom: 40px;
+        background: #020617;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #1e293b;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .phase h2 {
+        background: #1e293b;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+      }
+
+      .topic {
+        margin-top: 20px;
+      }
+
+      .topic h3 {
+        color: #38bdf8;
+        margin-bottom: 8px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: #0f172a;
+        margin: 6px 0;
+        padding: 10px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        border: 1px solid transparent;
+        font-size: 16px;
+      }
+
+      li:hover {
+        background: #1e293b;
+        border: 1px solid #38bdf8;
+        transform: translateX(4px);
+      }
+
+      .done {
+        background: #16a34a;
+        text-decoration: line-through;
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>GenAI Roadmap (2026)</h1>
+
+    <div id="roadmap"></div>
+
+    <script>
+let roadmap = {
+  "Python": {
+    "Programming Fundamentals": [
+        "Variables & Data Types",
+        "Type Casting",
+        "Operators & Conditionals",
+        "Loops",
+        "Functions",
+        "Scope (Local, Global, Nonlocal)",
+        "Arguments (*args, **kwargs)",
+        "Lambda Functions",
+        "Strings",
+        "Lists",
+        "Tuples",
+        "Sets",
+        "Dictionaries",
+        "List, Dictionary & Set Comprehensions",
+        "Iterators & Generators",
+        "File Handling",
+        "Context Managers (with statement)",
+        "Exception Handling (try/except/finally)",
+        "Modules & Packages",
+        "__name__ == '__main__'",
+        "Virtual Environments (venv)",
+        "pip & Package Management",
+        "JSON Handling",
+        "Working with APIs (requests)",
+        "Recursion"
+    ],
+
+ "Object-Oriented Programming": [
+  "Classes & Objects",
+  "__init__ Constructor",
+  "Instance vs Class Variables",
+  "Instance Methods",
+  "Class Methods",
+  "Static Methods",
+  "Inheritance",
+  "Method Overriding",
+  "Polymorphism",
+  "Encapsulation",
+  "super()",
+  "Magic (Dunder) Methods"
+],
+    "Advanced Python": [
+  "Higher Order Functions",
+  "Lambda Functions",
+  "Decorators",
+  "Closures",
+  "map()",
+  "filter()",
+  "reduce()",
+  "zip()",
+  "enumerate()",
+  "any() & all()",
+  "sorted()",
+  "Mutable vs Immutable",
+  "Shallow Copy vs Deep Copy",
+  "== vs is",
+  "Type Hints",
+  "Pathlib & os Module",
+  "Logging",
+  "Async/Await (asyncio)"
+]
+}
+};      let saved = JSON.parse(localStorage.getItem("roadmapProgress")) || {};
+
+      let container = document.getElementById("roadmap");
+
+      for (let phase in roadmap) {
+        let phaseDiv = document.createElement("div");
+        phaseDiv.className = "phase";
+
+        let h2 = document.createElement("h2");
+        h2.innerText = phase;
+
+        phaseDiv.appendChild(h2);
+
+        for (let topic in roadmap[phase]) {
+          let topicDiv = document.createElement("div");
+          topicDiv.className = "topic";
+
+          let h3 = document.createElement("h3");
+          h3.innerText = topic;
+
+          let ul = document.createElement("ul");
+
+          roadmap[phase][topic].forEach((task) => {
+            let li = document.createElement("li");
+            li.innerText = task;
+
+            if (saved[task]) {
+              li.classList.add("done");
+            }
+
+            li.onclick = function () {
+              saved[task] = !saved[task];
+
+              localStorage.setItem("roadmapProgress", JSON.stringify(saved));
+
+              li.classList.toggle("done");
+            };
+
+            ul.appendChild(li);
+          });
+
+          topicDiv.appendChild(h3);
+          topicDiv.appendChild(ul);
+
+          phaseDiv.appendChild(topicDiv);
+        }
+
+        container.appendChild(phaseDiv);
+      }
+    </script>
+  </body>
+  <!-- "Projects": ["To-do App", "API Fetcher", "Calculator", "Mini Games", "Form Validation"] -->
+</html>

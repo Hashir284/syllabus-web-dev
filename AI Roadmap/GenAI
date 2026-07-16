@@ -1,0 +1,213 @@
+🚀 GenAI Engineer Roadmap
+1. Programming
+Python ⭐⭐⭐⭐⭐
+(Python Basics
+OOP
+Functions
+Modules
+File Handling
+Exception Handling
+Virtual Environment)
+Git & GitHub
+Virtual Environments
+Package Management (pip, uv ya poetry)
+
+⬇️
+
+2. Python Libraries
+NumPy
+Pandas
+🟡 Matplotlib (Basics) not Important 
+
+⬇️
+
+3. Machine Learning Basics
+Scikit-learn
+Regression
+Classification
+Model Evaluation
+
+Sirf fundamentals. Deep ML expert banna zaroori nahi bus inn chaaron ka basics kaafi he.
+
+⬇️
+
+4. Deep Learning
+PyTorch ⭐⭐⭐⭐⭐
+Neural Networks
+Transformer Basics
+
+In teeno par achhi command honi chahiye. Transformer Basics ko kabhi skip mat karna, kyunki wahi GenAI ki foundation hai.
+
+⬇️
+
+5. LLM Fundamentals
+Tokens
+Embeddings
+Attention
+Context Window
+Temperature
+Tokenization
+Hallucinations
+
+Ye 5 concepts achhe se samajh lo. Inke bina RAG, LangChain, ya AI Agents ko deeply samajhna mushkil hoga.
+Temperature: API call karte waqt bahut baar set karte ho (creative vs deterministic output).
+Hallucinations: RAG, AI chatbots aur production apps banate waqt ye sabse common problem hoti hai. Interview mein bhi pooch sakte hain ki hallucinations ko kaise reduce karoge.
+
+⬇️
+
+6. Prompt Engineering
+Zero-shot
+Few-shot
+Structured Prompts
+Tool Calling Prompts
+
+⬇️
+
+7. Hugging Face Ecosystem
+Transformers
+Datasets
+Tokenizers
+Pipelines
+
+⬇️
+
+8. LLM APIs
+OpenAI API
+Google Gemini API
+Streaming
+Function/Tool Calling
+Structured Outputs
+
+⬇️
+
+9. Embeddings & Vector Databases
+Embeddings
+FAISS ⭐
+ChromaDB ⭐
+Similarity Search
+
+⬇️
+
+10. RAG (Most Important)
+Document Loading
+Chunking
+Retrieval
+Context Injection
+Evaluation
+Re-ranking
+Hybrid Search
+
+🟡 Later
+Re-ranking
+Hybrid Search
+Ye advanced topics hain. Large-scale ya enterprise RAG systems mein zyada use hote hain.
+
+⬇️
+
+11. AI Frameworks
+LangChain ⭐
+LlamaIndex ⭐
+LangGraph ⭐ (AI workflows)
+Aaj bahut si companies LangChain aur LangGraph ko AI agents aur production workflows ke liye use karti hain. LlamaIndex bhi valuable hai, lekin agar time kam ho to pehle LangChain aur LangGraph par strong command bana lo, phir LlamaIndex add karna.
+
+⬇️
+
+12. AI Agents
+Single Agent
+Multi-Agent Systems
+Tool Calling
+Memory
+Planning
+MCP (Model Context Protocol)
+
+Agar tumhare paas time kam hai, to pehle ye 5 skills master karo:
+✅ Tool Calling
+✅ MCP
+✅ Single Agent
+✅ Memory
+✅ Multi-Agent Systems
+Inse tum AI assistants, coding agents, customer support bots aur RAG-based agents jaise real-world GenAI applications bana paoge. Planning ko baad mein add kar sakte ho jab complex autonomous agent systems par kaam karna ho.
+
+⬇️
+
+13. Backend
+FastAPI ⭐⭐⭐⭐⭐
+REST APIs
+Authentication
+WebSockets (optional)
+
+⬇️
+
+14. Deployment
+Docker
+
+⬇️
+
+15. Cloud
+AWS (EC2, S3, Lambda basics)
+
+Must: AWS basics (EC2, S3, IAM)
+
+⬇️
+
+16. Monitoring & Evaluation
+MLflow
+LangSmith
+Logging
+Tracing
+
+Must: Logging, LangSmith
+
+🛠️ Projects (Order)
+Beginner
+AI Chatbot
+AI Text Summarizer
+AI Translator
+Intermediate
+PDF Chatbot (RAG)
+Resume Analyzer
+AI Email Writer
+AI Code Reviewer
+Advanced
+Customer Support AI
+Multi-Agent Research Assistant
+AI Voice Assistant
+AI SaaS Application
+
+⭐ Most Valuable Skills (2026)
+Python
+PyTorch
+Hugging Face
+Prompt Engineering
+OpenAI / Gemini APIs
+Embeddings
+RAG
+LangChain
+LangGraph
+FastAPI
+Docker
+AWS
+
+💼 Industry Stack
+Python → PyTorch → Hugging Face → OpenAI/Gemini APIs → FAISS/ChromaDB → RAG → LangChain/LangGraph → FastAPI → Docker → AWS
+
+⭐ Industry Stack (80/20)
+Python → NumPy & Pandas → Scikit-learn (Basics) → PyTorch → Prompt Engineering → Hugging Face → OpenAI/Gemini APIs → FAISS/ChromaDB → RAG → LangChain → LangGraph → FastAPI → Docker → AWS
+
+⭐ Final Industry Stack (2026)
+
+Python → Git → NumPy → Pandas → Scikit-learn (Basics) → PyTorch → Transformers → Prompt Engineering → Hugging Face → OpenAI/Gemini APIs → Embeddings → FAISS/ChromaDB → RAG → LangChain → LangGraph → AI Agents (Tool Calling, MCP) → FastAPI → Docker → AWS
+
+🎯 Agar sirf 12 skills chunni hon to ye lo:
+Python
+Git & GitHub
+PyTorch
+LLM Fundamentals
+Prompt Engineering
+Hugging Face
+OpenAI / Gemini APIs
+Embeddings + FAISS/ChromaDB
+RAG
+LangChain + LangGraph
+FastAPI
+Docker + AWS

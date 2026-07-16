@@ -1,0 +1,87 @@
+⭐ Must-Have GenAI Skills (Industry)
+🐍 Programming
+✅ Python
+✅ Git & GitHub
+📊 Data
+✅ NumPy
+✅ Pandas
+🤖 Machine Learning
+✅ Scikit-learn (Basics)
+🧠 Deep Learning
+✅ PyTorch
+✅ Transformer Basics
+💬 LLMs
+✅ Tokens
+✅ Tokenization
+✅ Embeddings
+✅ Attention
+✅ Context Window
+✍️ Prompt Engineering
+✅ Zero-shot
+✅ Few-shot
+✅ Structured Prompts
+✅ Tool Calling Prompts
+🤗 Hugging Face
+✅ Transformers
+✅ Tokenizers
+🔌 LLM APIs
+✅ OpenAI API
+✅ Google Gemini API
+✅ Function/Tool Calling
+✅ Structured Outputs
+📚 RAG
+✅ Embeddings
+✅ FAISS ya ChromaDB
+✅ Similarity Search
+✅ Document Loading
+✅ Chunking
+✅ Retrieval
+✅ Context Injection
+⚙️ AI Frameworks
+✅ LangChain
+✅ LangGraph
+🤖 AI Agents
+✅ Single Agent
+✅ Tool Calling
+✅ MCP
+✅ Memory
+🚀 Backend
+✅ FastAPI
+✅ REST APIs
+📦 Deployment
+✅ Docker
+☁️ Cloud
+✅ AWS (EC2, S3, IAM Basics)
+📈 Monitoring
+✅ Logging
+✅ LangSmith
+
+🎯 Agar sirf 15 core skills yaad rakhni hain:
+Python
+Git & GitHub
+NumPy & Pandas
+Scikit-learn (Basics)
+PyTorch
+Transformer Basics
+Prompt Engineering
+Hugging Face
+OpenAI / Gemini APIs
+Embeddings + FAISS/ChromaDB
+RAG
+LangChain + LangGraph
+AI Agents (Tool Calling + MCP)
+FastAPI + Docker
+AWS
+
+⭐ Final Rating
+✅ Python Foundation — 10/10
+✅ ML Basics — 9/10
+✅ PyTorch — 10/10
+✅ LLM Fundamentals — 10/10
+✅ Prompt Engineering — 10/10
+✅ Hugging Face — 10/10
+✅ LLM APIs — 10/10
+✅ Vector DB + RAG — 10/10
+✅ LangChain / LangGraph — 10/10
+✅ AI Agents — 10/10
+✅ FastAPI + Docker + AWS — 10/10
