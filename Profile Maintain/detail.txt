@@ -1,0 +1,81 @@
+🔥 Must Maintain
+LinkedIn ⭐⭐⭐⭐⭐
+Professional profile photo
+Strong headline
+About section
+Skills
+Projects
+Education
+Certificates
+Regular project/progress posts
+Featured section → portfolio + best projects
+GitHub ⭐⭐⭐⭐⭐
+Professional username
+Good profile README
+Pinned 5–6 best repositories
+Har important project ka proper README
+Meaningful commit history
+Clean repository structure
+Unnecessary/random repos ko private/archive
+Portfolio Website ⭐⭐⭐⭐⭐
+About
+Skills
+Projects
+Live demo
+GitHub links
+Contact
+Responsive design
+Professional UI
+CV / Resume ⭐⭐⭐⭐⭐
+1 page
+Skills
+3–5 strongest projects
+Education
+Certificates
+GitHub + LinkedIn + Portfolio
+Har job ke according slightly customize
+Project Documentation
+Har strong project mein:
+README
+Screenshots
+Features
+Tech stack
+Installation/setup
+Live demo
+GitHub repo
+Important decisions/features
+🟢 Good to Maintain
+LeetCode / Coding Profile
+Basic DSA practice
+Problem-solving consistency
+Certificates
+Sirf relevant certificates
+LinkedIn par add karo
+CV mein selected certificates
+Job Profiles
+Indeed
+Rozee.pk
+LinkedIn Jobs
+Wellfound
+Upwork/Fiverr agar freelancing karni ho
+Professional Email
+Simple naam-based email
+Example: firstname.lastname@...
+Learning/Progress Tracker
+Ek simple Notion/Google Sheet/GitHub repo mein:
+JavaScript ✅
+React ✅
+TypeScript 🔄
+Next.js 🔄
+Node.js 🔜
+Projects completed
+Interview preparation
+🎯 Tumhare liye priority
+
+Tum abhi Full Stack Development student ho aur frontend/React side par focus kar rahe ho, isliye sab kuch ek saath maintain karne ki zaroorat nahi.
+
+Priority order:
+
+1. Projects → 2. GitHub → 3. Portfolio → 4. LinkedIn → 5. CV → 6. Job profiles → 7. LeetCode
+
+Aur ek important cheez: Git aur GitHub alag hain. Tumne GitHub use kiya hai, lekin agar Git properly nahi aata toh basic Git zaroor seekho — clone, add, commit, push, pull, branch, merge, checkout/switch enough starting point hai.

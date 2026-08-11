@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile Pipeline</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#12141c;
+  --surface:#1b1f2a;
+  --border:#2a2f3f;
+  --text:#edebe6;
+  --text-dim:#8b8fa3;
+  --text-faint:#565c72;
+  --amber:#e8a33d;
+  --teal:#5fc9bf;
+  --rose:#d9736b;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:transparent;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--text);
+  padding:0;
+}
+.app{
+  max-width:840px;
+  margin:0 auto;
+  padding:32px 20px 60px;
+}
+
+/* ---------- header ---------- */
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin:0 0 10px;
+}
+.title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(26px,5vw,36px);
+  font-weight:700;
+  margin:0 0 6px;
+  letter-spacing:-.01em;
+}
+.subtitle{
+  color:var(--text-dim);
+  font-size:14px;
+  margin:0 0 26px;
+  max-width:520px;
+  line-height:1.5;
+}
+
+.status-bar{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-bottom:34px;
+}
+.ring-wrap{position:relative;width:64px;height:64px;flex:0 0 auto;}
+.ring-wrap svg{transform:rotate(-90deg);}
+.ring-pct{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:14px;font-weight:600;
+}
+.status-info{flex:1;min-width:0;}
+.status-line{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--text-dim);
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.status-line b{color:var(--text);font-weight:600;}
+.reset-btn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--text-dim);
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:7px;
+  padding:8px 12px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:border-color .15s, color .15s;
+}
+.reset-btn:hover{border-color:var(--rose);color:var(--rose);}
+
+/* ---------- group labels ---------- */
+.group-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-faint);
+  margin:36px 0 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.group-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+
+/* ---------- pipeline ---------- */
+.pipeline{position:relative;}
+.pipeline::before{
+  content:'';
+  position:absolute;
+  left:23px;
+  top:8px;
+  bottom:8px;
+  width:2px;
+  background:linear-gradient(var(--border),var(--border));
+}
+.stage{
+  position:relative;
+  padding-left:56px;
+  margin-bottom:14px;
+}
+.node{
+  position:absolute;
+  left:15px;
+  top:18px;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--border);
+  transition:border-color .2s, background .2s;
+  z-index:1;
+}
+.node.done{
+  border-color:var(--teal);
+  background:var(--teal);
+}
+.node.partial{border-color:var(--amber);}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.card-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 18px;
+  cursor:pointer;
+  user-select:none;
+}
+.tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  font-weight:600;
+  color:var(--teal);
+  background:rgba(95,201,191,.1);
+  border:1px solid rgba(95,201,191,.25);
+  border-radius:5px;
+  padding:3px 7px;
+  flex:0 0 auto;
+}
+.stage-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:15.5px;
+  flex:1;
+  min-width:0;
+}
+.stars{
+  font-size:11px;
+  color:var(--amber);
+  letter-spacing:1px;
+  flex:0 0 auto;
+}
+.mini-pct{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  color:var(--text-dim);
+  flex:0 0 auto;
+  min-width:34px;
+  text-align:right;
+}
+.chev{
+  flex:0 0 auto;
+  color:var(--text-faint);
+  transition:transform .2s;
+  font-size:12px;
+}
+.card.open .chev{transform:rotate(90deg);}
+
+.bar-track{
+  height:3px;
+  background:var(--border);
+}
+.bar-fill{
+  height:100%;
+  background:var(--teal);
+  transition:width .3s ease;
+}
+
+.card-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .28s ease;
+}
+.items{
+  padding:4px 18px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:8px 6px;
+  border-radius:7px;
+  cursor:pointer;
+  transition:background .15s;
+}
+.item:hover{background:rgba(255,255,255,.03);}
+.box{
+  flex:0 0 auto;
+  width:18px;height:18px;
+  margin-top:1px;
+  border-radius:5px;
+  border:1.5px solid var(--text-faint);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .15s, background .15s;
+}
+.box svg{opacity:0;transform:scale(.6);transition:opacity .15s, transform .15s;}
+.item.checked .box{background:var(--teal);border-color:var(--teal);}
+.item.checked .box svg{opacity:1;transform:scale(1);}
+.item-text{
+  font-size:13.5px;
+  line-height:1.45;
+  color:var(--text);
+  transition:color .15s;
+}
+.item.checked .item-text{color:var(--text-faint);text-decoration:line-through;text-decoration-color:var(--text-faint);}
+
+.footer-note{
+  margin-top:40px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--text-faint);
+  text-align:center;
+  line-height:1.7;
+}
+
+@media(max-width:520px){
+  .status-bar{flex-wrap:wrap;}
+  .status-line{gap:8px 14px;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <p class="eyebrow">// dev-brand / ci-pipeline</p>
+  <h1 class="title">Profile Pipeline</h1>
+  <p class="subtitle">Every stage a real developer profile needs to stay deployable. Check items off as you ship them — progress saves automatically.</p>
+
+  <div class="status-bar">
+    <div class="ring-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="#2a2f3f" stroke-width="6"/>
+        <circle id="ringFill" cx="32" cy="32" r="27" fill="none" stroke="#5fc9bf" stroke-width="6" stroke-linecap="round" stroke-dasharray="169.6" stroke-dashoffset="169.6"/>
+      </svg>
+      <div class="ring-pct" id="ringPct">0%</div>
+    </div>
+    <div class="status-info">
+      <div class="status-line">
+        <span><b id="doneCount">0</b>/<span id="totalCount">0</span> items shipped</span>
+        <span id="statusWord" style="color:var(--rose);">● BUILD PENDING</span>
+      </div>
+    </div>
+    <button class="reset-btn" id="resetBtn">reset all</button>
+  </div>
+
+  <div class="group-label">required stages</div>
+  <div class="pipeline" id="requiredPipeline"></div>
+
+  <div class="group-label">optional stages</div>
+  <div class="pipeline" id="optionalPipeline"></div>
+
+  <p class="footer-note">saved automatically · your checklist, nobody else's</p>
+</div>
+
+<script>
+const DATA = [
+  {group:'required', tag:'LI', name:'LinkedIn', stars:5, items:[
+    'Professional profile photo','Strong headline','About section','Skills','Projects',
+    'Education','Certificates','Regular project/progress posts','Featured section → portfolio + best projects'
+  ]},
+  {group:'required', tag:'GH', name:'GitHub', stars:5, items:[
+    'Professional username','Good profile README','Pinned 5–6 best repositories',
+    'Har important project ka proper README','Meaningful commit history',
+    'Clean repository structure','Unnecessary/random repos ko private/archive'
+  ]},
+  {group:'required', tag:'WEB', name:'Portfolio Website', stars:5, items:[
+    'About','Skills','Projects','Live demo','GitHub links','Contact','Responsive design','Professional UI'
+  ]},
+  {group:'required', tag:'CV', name:'CV / Resume', stars:5, items:[
+    '1 page','Skills','3–5 strongest projects','Education','Certificates',
+    'GitHub + LinkedIn + Portfolio','Har job ke according slightly customize'
+  ]},
+  {group:'required', tag:'DOC', name:'Project Documentation', stars:5, items:[
+    'README','Features','Tech stack','Installation/setup',
+    'Live demo','GitHub repo','Important decisions/features'
+  ]},
+  {group:'optional', tag:'CERT', name:'Certificates', items:[
+    'Sirf relevant certificates','LinkedIn par add karo','CV mein selected certificates'
+  ]},
+  {group:'optional', tag:'JOBS', name:'Job Profiles', items:[
+    'Indeed','Rozee.pk','LinkedIn Jobs','Wellfound','Upwork/Fiverr agar freelancing karni ho'
+  ]},
+  {group:'optional', tag:'MAIL', name:'Professional Email', items:[
+    'Simple naam-based email','Example: firstname.lastname@...'
+  ]},
+  {group:'optional', tag:'LRN', name:'Learning / Progress Tracker', items:[
+    {t:'JavaScript', d:true},{t:'React', d:true},{t:'TypeScript'},{t:'Next.js'},
+    {t:'Node.js'},{t:'Projects completed'},{t:'Interview preparation'}
+  ]}
+];
+
+let state = {};
+const STORAGE_KEY = 'profile-pipeline-checklist';
+
+function itemId(si, ii){ return si + ':' + ii; }
+
+function loadState(){
+  try{
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if(saved){ state = JSON.parse(saved); return; }
+  }catch(e){ /* no saved state */ }
+  state = {};
+  DATA.forEach((stage, si) => {
+    stage.items.forEach((it, ii) => {
+      const d = typeof it === 'object' ? !!it.d : false;
+      state[itemId(si, ii)] = d;
+    });
+  });
+}
+
+function saveState(){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  catch(e){ console.error('save failed', e); }
+}
+
+function stageStats(si){
+  const stage = DATA[si];
+  const total = stage.items.length;
+  let done = 0;
+  stage.items.forEach((_, ii) => { if(state[itemId(si, ii)]) done++; });
+  return {done, total, pct: total ? Math.round(done/total*100) : 0};
+}
+
+function renderStage(stage, si){
+  const {done, total, pct} = stageStats(si);
+  const card = document.createElement('div');
+  card.className = 'card open';
+  card.dataset.si = si;
+
+  const starsHtml = stage.stars ? '★'.repeat(stage.stars) : '';
+
+  card.innerHTML = `
+    <div class="card-head" data-toggle>
+      <span class="tag">${stage.tag}</span>
+      <span class="stage-name">${stage.name}</span>
+      ${starsHtml ? `<span class="stars">${starsHtml}</span>` : ''}
+      <span class="mini-pct">${pct}%</span>
+      <span class="chev">▶</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+    <div class="card-body">
+      <div class="items"></div>
+    </div>
+  `;
+
+  const itemsWrap = card.querySelector('.items');
+  stage.items.forEach((it, ii) => {
+    const text = typeof it === 'object' ? it.t : it;
+    const checked = !!state[itemId(si, ii)];
+    const row = document.createElement('div');
+    row.className = 'item' + (checked ? ' checked' : '');
+    row.dataset.ii = ii;
+    row.innerHTML = `
+      <span class="box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="#12141c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="item-text">${text}</span>
+    `;
+    row.addEventListener('click', () => {
+      const id = itemId(si, ii);
+      state[id] = !state[id];
+      row.classList.toggle('checked', state[id]);
+      updateStageChrome(si);
+      updateOverall();
+      saveState();
+    });
+    itemsWrap.appendChild(row);
+  });
+
+  card.querySelector('[data-toggle]').addEventListener('click', () => {
+    const body = card.querySelector('.card-body');
+    const isOpen = card.classList.toggle('open');
+    body.style.maxHeight = isOpen ? body.scrollHeight + 'px' : '0px';
+  });
+
+  return card;
+}
+
+function updateStageChrome(si){
+  const card = document.querySelector(`.card[data-si="${si}"]`);
+  if(!card) return;
+  const {pct} = stageStats(si);
+  card.querySelector('.mini-pct').textContent = pct + '%';
+  card.querySelector('.bar-fill').style.width = pct + '%';
+  const body = card.querySelector('.card-body');
+  if(card.classList.contains('open')){
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+  const node = document.querySelector(`.node[data-si="${si}"]`);
+  if(node){
+    node.classList.toggle('done', pct === 100);
+    node.classList.toggle('partial', pct > 0 && pct < 100);
+  }
+}
+
+function updateOverall(){
+  let done = 0, total = 0;
+  DATA.forEach((stage, si) => {
+    const s = stageStats(si);
+    done += s.done; total += s.total;
+  });
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('ringPct').textContent = pct + '%';
+  const circumference = 169.6;
+  document.getElementById('ringFill').style.strokeDashoffset = circumference - (circumference * pct/100);
+  const word = document.getElementById('statusWord');
+  if(pct === 100){ word.textContent = '● FULLY DEPLOYED'; word.style.color = 'var(--teal)'; }
+  else if(pct > 0){ word.textContent = '● BUILD IN PROGRESS'; word.style.color = 'var(--amber)'; }
+  else { word.textContent = '● BUILD PENDING'; word.style.color = 'var(--rose)'; }
+}
+
+function renderPipeline(containerId, group){
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  DATA.forEach((stage, si) => {
+    if(stage.group !== group) return;
+    const node = document.createElement('div');
+    node.className = 'node';
+    node.dataset.si = si;
+    const stageWrap = document.createElement('div');
+    stageWrap.className = 'stage';
+    stageWrap.appendChild(node);
+    stageWrap.appendChild(renderStage(stage, si));
+    container.appendChild(stageWrap);
+  });
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  DATA.forEach((stage, si) => stage.items.forEach((_, ii) => state[itemId(si, ii)] = false));
+  document.querySelectorAll('.item').forEach(row => row.classList.remove('checked'));
+  DATA.forEach((_, si) => updateStageChrome(si));
+  updateOverall();
+  saveState();
+});
+
+function init(){
+  loadState();
+  renderPipeline('requiredPipeline', 'required');
+  renderPipeline('optionalPipeline', 'optional');
+  DATA.forEach((_, si) => updateStageChrome(si));
+  updateOverall();
+}
+
+init();
+</script>
+</body>
+</html>
