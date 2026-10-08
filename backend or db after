@@ -1,0 +1,9 @@
+Redis mein abhi sirf ye seekho:
+Redis kya hai / in-memory data store
+Key-Value operations
+TTL / Expiration
+Caching
+Cache invalidation basics
+Sessions
+Rate limiting
+Pub/Sub basics

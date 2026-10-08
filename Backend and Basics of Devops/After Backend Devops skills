@@ -1,0 +1,80 @@
+1. Git + GitHub ⭐⭐⭐⭐⭐
+Branching
+Pull/merge
+.gitignore
+Environment/secrets ka concept
+GitHub repo management
+
+2. Linux Basics ⭐⭐⭐⭐⭐
+Sirf:
+Terminal commands
+Files/folders
+Permissions
+Processes
+Environment variables
+ssh
+scp
+curl
+
+3. Docker ⭐⭐⭐⭐⭐
+Must learn
+Dockerfile
+Images
+Containers
+Ports
+Volumes
+Networks
+Docker Compose
+.dockerignore
+Production environment variables
+
+4. CI/CD — GitHub Actions ⭐⭐⭐⭐⭐
+Seekho:
+Workflow YAML
+Build
+Test
+Docker image build
+Deploy on push
+
+5. Nginx ⭐⭐⭐⭐
+Reverse proxy
+Domain → app
+Frontend/backend routing
+Basic config
+
+6. Domain + DNS + HTTPS ⭐⭐⭐⭐⭐
+A record
+CNAME
+DNS basics
+SSL/TLS
+Let's Encrypt
+HTTPS
+
+7. Production Security ⭐⭐⭐⭐⭐
+Tumhare backend ke liye:
+.env / secrets
+CORS
+Rate limiting
+Helmet
+Secure cookies
+JWT security
+HTTPS
+SSH security
+Never commit secrets
+
+8. Monitoring + Backups ⭐⭐⭐⭐⭐
+Bas practical level:
+Application logs
+Error logs
+/health endpoint
+Uptime monitoring
+Database backup
+Restore ka basic process
+
+9. AWS mein abhi sirf itna:
+EC2 → server par app deploy karna
+IAM → users/permissions ka basic concept
+Security Groups → server firewall
+S3 → file/storage ka basic concept
+RDS → managed database ka basic concept
+CloudWatch → basic logs/monitoring

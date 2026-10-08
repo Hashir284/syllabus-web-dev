@@ -1,0 +1,32 @@
+Bas 4 cheezein Phase 5 mein add kar do
+PostgreSQL:
+- Transactions
+- Foreign Keys
+- Constraints
+- Database Design / Normalization
+
+Aur API development mein:
+
+- Pagination
+- Filtering
+- Sorting
+- Search
+
+Ye actual backend work mein bohot common hain.
+
+Ek aur important point
+
+Tumhare Phase 6 mein:
+
+"Vercel",
+"AWS"
+
+Vercel ko DevOps skill mat samajhna. Vercel ek deployment/platform service hai. AWS ke saath tumhara production deployment knowledge zyada valuable hoga.
+
+Aur:
+
+"Load Balancing"
+"CDN"
+"Reverse Proxy"
+
+inko basic conceptual level par rakho. Abhi inka deep implementation zaroori nahi.

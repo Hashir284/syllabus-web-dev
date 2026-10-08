@@ -1,0 +1,22 @@
+3️⃣ YouTube se sirf DevOps basics:
+
+Linux
+Git/GitHub
+Docker
+GitHub Actions
+AWS basics
+Deployment
+CI/CD
+
+↓
+4️⃣ Projects + internship/job apply
+
+❌ Abhi ye mat karo:
+Full DevOps course
+Full ML/Data Science course
+Kubernetes/Terraform/Ansible deep dive
+
+Scikit-learn basics
+PyTorch basics
+Computer Vision basics/OpenCV
+ML fundamentals + evaluation metrics

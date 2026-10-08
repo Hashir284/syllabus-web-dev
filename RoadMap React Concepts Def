@@ -1,0 +1,13 @@
+Components: React mein UI ko reusable chhote parts mein divide karne ke liye components use hote hain.
+JSX: JSX React mein JavaScript ke andar HTML jaisa code likhne ka syntax hai.
+Props: Props parent se child component ko data pass karne ke liye use hote hain.
+State: State component ka internal data hota hai jo change hone par UI re-render karta hai.
+useState: useState component mein state create aur update karne ke liye use hota hai.
+useEffect: useEffect side effects jaise API calls ya subscriptions handle karne ke liye use hota hai.
+useRef: useRef kisi DOM element ya value ka reference store karta hai bina re-render karwaye.
+useContext: useContext props drilling ke bina shared data access karne ke liye use hota hai.
+Conditional Rendering: Condition ke according different UI show karna conditional rendering kehlata hai.
+Lists & Keys: Lists se multiple items render karte hain aur keys har item ko uniquely identify karti hain.
+Event Handling: User ke actions jaise click, change aur submit ko handle karna event handling hai.
+Controlled Components: Form input ki value ko React state ke through control karna controlled component kehlata hai.
+Component Lifecycle: Component ka mount, update aur unmount hona uska lifecycle kehlata hai.

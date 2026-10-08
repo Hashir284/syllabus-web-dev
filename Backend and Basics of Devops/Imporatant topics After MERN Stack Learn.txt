@@ -1,0 +1,40 @@
+Advanced Full-Stack / Backend Roadmap
+Authentication & Security 🔐
+JWT, Cookies, Refresh Tokens, bcrypt, CORS, Rate Limiting
+Advanced REST API 🌐
+Validation, Error Handling, Pagination, Filtering, Sorting, File Uploads
+PostgreSQL + SQL 🗄️
+SQL, Joins, Indexes, Relations, Transactions
+Redis ⚡
+Caching, Sessions, Rate Limiting
+Testing 🧪
+Jest, Supertest, Unit Testing, Integration Testing
+TypeScript 🔷
+Types, Interfaces, Generics, Utility Types, TypeScript + React/Node/Express
+Linux 🐧
+Linux Commands, Files & Permissions, Processes, Environment Variables, SSH, Networking, Ports, Bash Basics, Services, Nginx
+Docker 🐳
+Dockerfile, Images, Containers, Docker Compose
+Deployment + CI/CD ☁️
+Hosting, Environment Variables, GitHub Actions, CI/CD
+System Design Basics 🏗️
+Scalability, Load Balancing, Caching, Database Optimization
+WebSockets & Real-Time Apps 🔴
+Socket.IO, Real-Time Notifications, Chat Applications
+Message Queues & Background Jobs 📬
+Redis/BullMQ, Job Queues, Workers, Cron Jobs
+API Architecture & Design 🧩
+MVC, Service Layer, Repository Pattern, Clean Architecture, REST Best Practices
+Performance Optimization ⚡
+Database Optimization, API Optimization, Caching, Lazy Loading, Compression
+Monitoring & Logging 📊
+Winston/Pino, Error Tracking, Health Checks, Application Monitoring
+GraphQL + API Documentation 📚
+GraphQL Basics, Queries, Mutations, Schema, Swagger/OpenAPI
+🔥 AI Side
+AI Integration 🤖
+LLM APIs, Streaming, Function Calling, Embeddings
+RAG 🧠
+Vector Databases, Embeddings, Retrieval, Context
+Agentic AI 🚀
+AI Agents, Tools, Workflows, Memory, MCP
