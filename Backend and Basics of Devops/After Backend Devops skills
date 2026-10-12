@@ -78,3 +78,14 @@ Security Groups → server firewall
 S3 → file/storage ka basic concept
 RDS → managed database ka basic concept
 CloudWatch → basic logs/monitoring
+
+; Left Shift se Forward (Agli) Virtual Desktop par switch karna
+CapsLock::
+{
+    SetCapsLockState !GetKeyState("CapsLock", "T")
+
+    if GetKeyState("CapsLock", "T")
+        Send "^#{Right}"
+    else
+        Send "^#{Left}"
+}
